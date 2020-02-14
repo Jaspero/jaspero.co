@@ -8,7 +8,6 @@ writeFileSync(
     readFileSync('index.html').toString(),
     {
       removeAttributeQuotes: true,
-      collapseInlineTagWhitespace: true,
       minifyCSS: true,
       minifyJS: true,
       collapseWhitespace: true,
@@ -17,7 +16,6 @@ writeFileSync(
       processScripts: ['application/ld+json'],
       removeRedundantAttributes: true,
       removeScriptTypeAttributes: true,
-      removeTagWhitespace: true
     }
   )
 );
