@@ -25,8 +25,6 @@ const contact = functions.https.onRequest((req, res) => {
 });
 
 
-exports = {
-  site: {
-    contact
-  }
+exports.site = {
+  contact
 };
