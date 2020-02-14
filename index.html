@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jaspero</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="manifest" href="assets/manifest/manifest.json">
+    <style>
+        @font-face { font-family: "Gilroy"; src: url("assets/Gilroy-Light.otf") format("opentype"); font-weight: normal; }
+        html { color: rgba(255,255,255,.7); line-height: 1.5; font-size: calc(16px + 1vw); -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-family: "Gilroy", sans-serif; background: #000 url("assets/pattern.svg") fixed; scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; }
+        body { margin: 0; }
+        :focus::-moz-focus-inner { border: none; }
+        section { display: flex; align-items: baseline; min-height: 100vh; scroll-snap-align: start; }
+        .heading { flex: 1; position: sticky; top: 10vh; text-align: right; margin: 10vh -1px 2rem 0; padding: 0 2rem; border-right: 1px solid; color: rgba(255,255,255,1); font-weight: normal; font-size: 2rem; line-height: 1; }
+        .content { flex: 2; padding: 2rem 4rem 25vh 2rem; }
+        .logo { display: flex; margin-bottom: 2rem; height: 2rem; position: relative; top: 0.35rem; }
+        hr { margin: 0; align-self: stretch; border: none; border-left: 1px solid rgba(255,255,255,.2); }
+        nav { margin-bottom: 2rem; }
+        nav > a { margin-right: 1rem; margin-bottom: 1rem; }
+        a { position: relative; display: inline-block; color: #e65100; text-decoration: none; outline: none; }
+        a::before, button::before { content: ''; position: absolute; top: 0; right: 0; width: 0; height: 1px; background: #e65100; transition: .2s; }
+        a::after, button::after { content: ''; position: absolute; top: 100%; left: 0; width: 0; height: 1px; background: #e65100; transition: .2s; }
+        a:hover::before, a:focus::before, button:hover::before, button:focus::before { width: 100%; }
+        a:hover::after, a:focus::after, button:hover::after, button:focus::after { width: 100%; }
+        p { margin: 0 0 2rem; }
+        img { max-width: 100%; max-height: 100%; }
+        strong, figcaption { font-weight: normal; color: rgba(255,255,255,1); }
+        figure { margin: 0; }
+        form { position: relative; margin-bottom: 2rem; padding-bottom: 2rem; overflow: hidden; }
+        form.loading::before { content: 'Sending'; position: absolute; bottom: 0; left: 0; }
+        form.loading::after { content: ''; position: absolute; z-index: 2; bottom: 0; left: -100%; height: 1px; width: 100%; background: #e65100; animation: loading 1.2s ease infinite; }
+        @keyframes loading { from { left: -100%; } to { left: 100%; } }
+        input, textarea { font-family: inherit; outline: none; font-size: inherit; color: inherit; background: rgba(255,255,255,.04); border: 1px solid transparent; padding: .5rem; transition: .2s; }
+        input:focus, textarea:focus { background: rgba(255,255,255,.08); }
+        textarea { resize: vertical; width: -moz-available; width: -webkit-fill-available; }
+        button { position: relative; outline: none; border: none; cursor: pointer; background: none; font-size: inherit; font-family: inherit; line-height: inherit; padding: 0; color: #e65100; margin-left: 6rem; }
+        button:focus { outline: none; border: none; }
+        label { display: flex; align-items: baseline; margin-bottom: 1rem; background: none; }
+        label > span { width: 6rem; flex-shrink: 0; transition: .2s; }
+        label:focus-within > span { color: rgba(255,255,255,1); }
+        @media (max-width: 1000px) {
+            section { flex-direction: column; }
+            .heading { position: static; border-right: none; flex: none; }
+            .content { flex: none; padding: 2rem 2rem 25vh; }
+            a { display: block; }
+            hr { border-top: 1px solid rgba(255,255,255,.2); }
+            label { flex-direction: column; }
+            button { margin-left: 0; }
+        }
+    </style>
+    <script>
+        function initForm() {
+            const conForm = document.querySelectorAll('input, textarea');
+            const button = document.querySelector('button');
+            const form = document.querySelector('contact-form');
+
+            button.addEventListener('click', function () {
+                const data = {};
+                if (form.checkValidity()) {
+                    for (let i = 0; i < conForm.length; i++) {
+                        data[conForm[i].getAttribute('name')] = conForm[i].value;
+                    }
+
+                    event.preventDefault();
+                    button.classList.add('loading');
+
+                    fetch(`https://api.jaspero.club/api/v1/p/jaspero-home/contact/create`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => response.json())
+                        .then(() => {
+                            alert('Your message has been sent. Thank you for reaching out.');
+                            button.classList.remove('loading');
+                            form.reset()
+                        })
+                        .catch(() => {
+                            alert('There was something wrong with your message.');
+                            button.classList.remove('loading');
+                        });
+                }
+            });
+        }
+
+        function initServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            }
+        }
+
+        window.addEventListener('load', () => {
+            initForm();
+            initServiceWorker();
+        });
+    </script>
+</head>
+
+<body>
+
+<section id="jaspero">
+    <h1 class="heading">Jaspero</h1>
+    <hr>
+    <div class="content">
+        <div class="logo"><img src="assets/logo.svg" alt="Jaspero logo."></div>
+        <p>We're a <strong>JavaScript</strong> development agency specialized in creating <strong>high quality</strong> and <strong>cutting edge</strong> applications for mobile, desktop and web environments.</p>
+        <nav>
+            <a href="#expertise">Expertise</a>
+            <a href="#projects">Projects</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</section>
+
+<section id="expertise">
+    <h2 class="heading">Expertise</h2>
+    <hr>
+    <div class="content">
+        <figure>
+            <figcaption>Web development</figcaption>
+            <p>Modern JS frameworks, responsive layouts, universal application development, RESTful API, scalable architecture, third-party integrations.</p>
+        </figure>
+        <figure>
+            <figcaption>UI & UX Design</figcaption>
+            <p>User interface design, user experience design, wireframing and prototyping, responsive design, visual design.</p>
+        </figure>
+        <figure>
+            <figcaption>Open-source projects</figcaption>
+            <p>Javascript libraries, Typescript libraries, guidelines, Sass & Scss mixins, various boilerplates, project collaborations.</p>
+        </figure>
+        <a href="#projects">Projects ↓</a>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="heading">Projects</h2>
+    <hr>
+    <div class="content">
+        <p>A small sample of projects we've worked on or are still working on. We're always ready to conquer new ideas and accept new challenges. We also love working on open-source projects and sharing our ideas.</p>
+        <figure>
+            <figcaption>Dealerbible</figcaption>
+            <p>A content management system for every area of your Auto Group or Dealership.</p>
+        </figure>
+        <figure>
+            <figcaption>GlycanAge</figcaption>
+            <p>Science-based laboratory tests that estimates a person's biological age.</p>
+        </figure>
+        <figure>
+            <figcaption>JMS</figcaption>
+            <p>A CMS based on Angular that is fully configurable through JSON schemas. Open-source.</p>
+        </figure>
+        <figure>
+            <figcaption>Fireshop</figcaption>
+            <p>A webshop built on Firebase and the Angular framework. Open-source.</p>
+        </figure>
+        <a href="#team">Team ↓</a>
+    </div>
+</section>
+
+<section id="team">
+    <h2 class="heading">Team</h2>
+    <hr>
+    <div class="content">
+        <p>We're a group of experienced, enthusiastic, and innovative <strong>developers and designers</strong>, specialized in delivering <strong>great products</strong> to our customers. Our <strong>expertise</strong> is modern technologies, smart product design, and great user experience.</p>
+        <p>Additionally, we love to create tools and technologies that <strong>help developers</strong> (including ourselves) create projects more efficiently. In a rapidly growing industry, we believe that <strong>collaboration</strong> is the key to success.</p>
+        <p>We currently house <strong>11 developers</strong>, and have over <strong>6 years of experience</strong>.</p>
+        <a href="#contact">Contact ↓</a>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="heading">Contact</h2>
+    <hr>
+    <div class="content">
+        <p><strong>Let's work together!</strong><br>Send us an inquiry or a question:</p>
+        <form>
+            <label>
+                <span>Name</span>
+                <input type="text">
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email">
+            </label>
+            <label>
+                <span>Message</span>
+                <textarea rows="4"></textarea>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Other ways to contact us:</p>
+        <nav>
+            <a href="mailto:info@jaspero.co">info@jaspero.co</a>
+            <a href="https://github.com/jaspero" target="_blank" rel="noopener">Github</a>
+            <a href="https://www.behance.net/Jaspero" target="_blank" rel="noopener">Behance</a>
+        </nav>
+        <p><small>© 2020  Jaspero</small></p>
+    </div>
+</section>
+
+</body>
+
+</html>
