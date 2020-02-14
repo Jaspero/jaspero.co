@@ -5,6 +5,34 @@
     <title>Jaspero</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#E65100">
+    <meta name="description" content="Jaspero is a javascript development agency specialized at creating high quality and cutting edge applications for mobile, desktop and web environments.">
+    <meta name="keywords" content="Angular,Ionic,Native Script,NodeJs,Mongo,Web Development,Elasticsearch,Web Design,Graphic Design">
+    <meta name="author" content="Jaspero">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-88746480-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script type="application/ld+json" id="jsonLd">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Jaspero",
+            "legalName": "Jaspero Ltd.",
+            "email": "info@jaspero.co",
+            "url": "http://jaspero.co",
+            "logo": "http://jaspero.co/assets/imgs/logo.svg",
+            "sameAs": [
+                "https://twitter.com/jaspero_co",
+                "https://www.linkedin.com/company/17911206",
+                "https://instagram.com/jaspero.co/",
+                "https://plus.google.com/u/0/b/106879308415476385523/106879308415476385523"
+            ]
+        }
+    </script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="manifest" href="assets/manifest/manifest.json">
     <style>
@@ -51,56 +79,59 @@
         }
     </style>
     <script>
-        function initForm() {
-            const conForm = document.querySelectorAll('input, textarea');
-            const button = document.querySelector('button');
-            const form = document.querySelector('contact-form');
+      function initForm() {
+        const conForm = document.querySelectorAll('input, textarea');
+        const form = document.querySelector('form');
 
-            button.addEventListener('click', function () {
-                const data = {};
-                if (form.checkValidity()) {
-                    for (let i = 0; i < conForm.length; i++) {
-                        data[conForm[i].getAttribute('name')] = conForm[i].value;
-                    }
+        form.addEventListener('submit', function () {
+          const data = {};
+          for (let i = 0; i < conForm.length; i++) {
+            data[conForm[i].getAttribute('name')] = conForm[i].value;
+          }
 
-                    event.preventDefault();
-                    button.classList.add('loading');
+          event.preventDefault();
+          form.classList.add('loading');
 
-                    fetch(`https://api.jaspero.club/api/v1/p/jaspero-home/contact/create`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json; charset=utf-8'
-                        },
-                        body: JSON.stringify(data)
-                    })
-                        .then(response => response.json())
-                        .then(() => {
-                            alert('Your message has been sent. Thank you for reaching out.');
-                            button.classList.remove('loading');
-                            form.reset()
-                        })
-                        .catch(() => {
-                            alert('There was something wrong with your message.');
-                            button.classList.remove('loading');
-                        });
-                }
+          fetch(`/api/contact`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(data)
+          })
+            .then((response) => {
+
+              form.classList.remove('loading');
+
+              if (response.status === 200) {
+                alert('Your message has been sent. Thank you for reaching out.');
+                form.reset()
+              } else {
+                alert('There was something wrong with your message.');
+              }
+
+            })
+            .catch(() => {
+              form.classList.remove('loading');
+              alert('There was something wrong with your message.');
             });
-        }
-
-        function initServiceWorker() {
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('SW registered: ', registration);
-                }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-            }
-        }
-
-        window.addEventListener('load', () => {
-            initForm();
-            initServiceWorker();
         });
+      }
+
+      function initServiceWorker() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        }
+      }
+
+      window.addEventListener('load', () => {
+        initForm();
+        initServiceWorker();
+      });
     </script>
 </head>
 
@@ -185,15 +216,15 @@
         <form>
             <label>
                 <span>Name</span>
-                <input type="text">
+                <input type="text" required>
             </label>
             <label>
                 <span>Email</span>
-                <input type="email">
+                <input type="email" required>
             </label>
             <label>
                 <span>Message</span>
-                <textarea rows="4"></textarea>
+                <textarea rows="4" required></textarea>
             </label>
             <button type="submit">Submit</button>
         </form>

@@ -1,0 +1,33 @@
+{
+  "name": "jaspero.co",
+  "version": "1.0.0",
+  "description": "Source code for the jaspero.co website",
+  "main": "index.js",
+  "scripts": {
+    "target-setup": "firebase target:apply hosting website jaspero-site",
+    "build": "node build.js",
+    "deploy": "firebase deploy --only hosting,functions:site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaspero/jaspero.co.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": {
+    "name": "Jaspero Ltd",
+    "email": "info@jaspero.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaspero/jaspero.co/issues"
+  },
+  "homepage": "https://github.com/Jaspero/jaspero.co#readme",
+  "devDependencies": {
+    "fs-extra": "8.1.0",
+    "html-minifier": "4.0.0"
+  }
+}
