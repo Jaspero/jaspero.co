@@ -40,10 +40,10 @@
         html { color: rgba(255,255,255,.7); line-height: 1.5; font-size: calc(16px + 1vw); -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-family: "Gilroy", sans-serif; background: #000 url("assets/pattern.svg") fixed; scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; }
         body { margin: 0; }
         :focus::-moz-focus-inner { border: none; }
-        section { display: flex; align-items: baseline; min-height: 100vh; scroll-snap-align: start; }
-        .heading { flex: 1; position: sticky; top: 10vh; text-align: right; margin: 10vh -1px 2rem 0; padding: 0 2rem; border-right: 1px solid; color: rgba(255,255,255,1); font-weight: normal; font-size: 2rem; line-height: 1; }
-        .content { flex: 2; padding: 2rem 4rem 25vh 2rem; }
-        .logo { display: flex; margin-bottom: 2rem; height: 2rem; position: relative; top: 0.35rem; }
+        article { display: flex; align-items: baseline; min-height: 100vh; scroll-snap-align: start; }
+        h1, h2 { flex: 1; position: sticky; top: 10vh; text-align: right; margin: 10vh -1px 2rem 0; padding: 0 2rem; border-right: 1px solid; color: rgba(255,255,255,1); font-weight: normal; font-size: 2rem; line-height: 1; }
+        section { flex: 2; padding: 2rem 4rem 25vh 2rem; }
+        img { height: 2rem; position: relative; top: 0.35rem; max-width: 100%; max-height: 100%; }
         hr { margin: 0; align-self: stretch; border: none; border-left: 1px solid rgba(255,255,255,.2); }
         nav { margin-bottom: 2rem; }
         nav > a { margin-right: 1rem; margin-bottom: 1rem; }
@@ -53,7 +53,6 @@
         a:hover::before, a:focus::before, button:hover::before, button:focus::before { width: 100%; }
         a:hover::after, a:focus::after, button:hover::after, button:focus::after { width: 100%; }
         p { margin: 0 0 2rem; }
-        img { max-width: 100%; max-height: 100%; }
         strong, figcaption { font-weight: normal; color: rgba(255,255,255,1); }
         figure { margin: 0; }
         form { position: relative; margin-bottom: 2rem; padding-bottom: 2rem; overflow: hidden; }
@@ -69,9 +68,9 @@
         label > span { width: 6rem; flex-shrink: 0; transition: .2s; }
         label:focus-within > span { color: rgba(255,255,255,1); }
         @media (max-width: 1000px) {
-            section { flex-direction: column; }
-            .heading { position: static; border-right: none; flex: none; }
-            .content { flex: none; padding: 2rem 2rem 25vh; }
+            article { flex-direction: column; }
+            h1, h2 { position: static; border-right: none; flex: none; }
+            section { flex: none; padding: 2rem 2rem 25vh; }
             nav { display: flex; flex-direction: column; align-items: flex-start; }
             hr { border-top: 1px solid rgba(255,255,255,.2); }
             label { flex-direction: column; }
@@ -137,11 +136,11 @@
 
 <body>
 
-<section id="jaspero">
-    <h1 class="heading">Jaspero</h1>
+<article id="jaspero">
+    <h1>Jaspero</h1>
     <hr>
-    <div class="content">
-        <div class="logo"><img src="assets/logo.svg" alt="Jaspero logo."></div>
+    <section>
+        <p><img src="assets/logo.svg" alt="Jaspero logo."></p>
         <p>We're a <strong>JavaScript</strong> development agency specialized in creating <strong>high quality</strong> and <strong>cutting edge</strong> applications for mobile, desktop and web environments.</p>
         <nav>
             <a href="#expertise">Expertise</a>
@@ -149,13 +148,13 @@
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
         </nav>
-    </div>
-</section>
+    </section>
+</article>
 
-<section id="expertise">
-    <h2 class="heading">Expertise</h2>
+<article id="expertise">
+    <h2>Expertise</h2>
     <hr>
-    <div class="content">
+    <section>
         <figure>
             <figcaption>Web development</figcaption>
             <p>Modern JS frameworks, responsive layouts, universal application development, RESTful API, scalable architecture, third-party integrations.</p>
@@ -169,13 +168,13 @@
             <p>Javascript libraries, Typescript libraries, guidelines, Sass & Scss mixins, various boilerplates, project collaborations.</p>
         </figure>
         <a href="#projects">Projects ↓</a>
-    </div>
-</section>
+    </section>
+</article>
 
-<section id="projects">
-    <h2 class="heading">Projects</h2>
+<article id="projects">
+    <h2>Projects</h2>
     <hr>
-    <div class="content">
+    <section>
         <p>A small sample of projects we've worked on or are still working on. We're always ready to conquer new ideas and accept new challenges. We also love working on open-source projects and sharing our ideas.</p>
         <figure>
             <figcaption>Dealerbible</figcaption>
@@ -194,24 +193,24 @@
             <p>A webshop built on Firebase and the Angular framework. Open-source.</p>
         </figure>
         <a href="#team">Team ↓</a>
-    </div>
-</section>
+    </section>
+</article>
 
-<section id="team">
-    <h2 class="heading">Team</h2>
+<article id="team">
+    <h2>Team</h2>
     <hr>
-    <div class="content">
+    <section>
         <p>We're a group of experienced, enthusiastic, and innovative <strong>developers and designers</strong>, specialized in delivering <strong>great products</strong> to our customers. Our <strong>expertise</strong> is modern technologies, smart product design, and great user experience.</p>
         <p>Additionally, we love to create tools and technologies that <strong>help developers</strong> (including ourselves) create projects more efficiently. In a rapidly growing industry, we believe that <strong>collaboration</strong> is the key to success.</p>
         <p>We currently house <strong>11 developers</strong>, and have over <strong>6 years of experience</strong>.</p>
         <a href="#contact">Contact ↓</a>
-    </div>
-</section>
+    </section>
+</article>
 
-<section id="contact">
-    <h2 class="heading">Contact</h2>
+<article id="contact">
+    <h2>Contact</h2>
     <hr>
-    <div class="content">
+    <section>
         <p><strong>Let's work together!</strong><br>Send us an inquiry or a question:</p>
         <form>
             <label>
@@ -235,8 +234,8 @@
             <a href="https://www.behance.net/Jaspero" target="_blank" rel="noopener">Behance</a>
         </nav>
         <p><small>© 2020  Jaspero</small></p>
-    </div>
-</section>
+    </section>
+</article>
 
 </body>
 
