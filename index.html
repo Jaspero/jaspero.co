@@ -42,7 +42,7 @@
         :focus::-moz-focus-inner { border: none; }
         article { display: flex; align-items: baseline; min-height: 100vh; scroll-snap-align: start; }
         h1, h2 { flex: 1; position: sticky; top: 10vh; text-align: right; margin: 10vh -1px 2rem 0; padding: 0 2rem; border-right: 1px solid; color: rgba(255,255,255,1); font-weight: normal; font-size: 2rem; line-height: 1; }
-        section { flex: 2; padding: 2rem 4rem 25vh 2rem; }
+        section { flex: 2; padding: 2rem 6rem 25vh 2rem; }
         img { height: 2rem; position: relative; top: 0.35rem; max-width: 100%; max-height: 100%; }
         hr { margin: 0; align-self: stretch; border: none; border-left: 1px solid rgba(255,255,255,.2); }
         nav { margin-bottom: 2rem; }
@@ -52,7 +52,7 @@
         a::after, button::after { content: ''; position: absolute; top: 100%; left: 0; width: 0; height: 1px; background: #e65100; transition: .2s; }
         a:hover::before, a:focus::before, button:hover::before, button:focus::before { width: 100%; }
         a:hover::after, a:focus::after, button:hover::after, button:focus::after { width: 100%; }
-        p { margin: 0 0 2rem; }
+        p, ul { margin: 0 0 2rem; }
         strong, figcaption { font-weight: normal; color: rgba(255,255,255,1); }
         figure { margin: 0; }
         form { position: relative; margin-bottom: 2rem; padding-bottom: 2rem; overflow: hidden; }
@@ -157,15 +157,34 @@
     <section>
         <figure>
             <figcaption>Web development</figcaption>
-            <p>Modern JS frameworks, responsive layouts, universal application development, RESTful API, scalable architecture, third-party integrations.</p>
+            <ul>
+                <li>Modern JS frameworks</li>
+                <li>Responsive layouts</li>
+                <li>Universal application development</li>
+                <li>RESTful API</li>
+                <li>Scalable architecture</li>
+                <li>Third-party integrations</li>
+            </ul>
         </figure>
         <figure>
-            <figcaption>UI & UX Design</figcaption>
-            <p>User interface design, user experience design, wireframing and prototyping, responsive design, visual design.</p>
+            <figcaption>Design</figcaption>
+            <ul>
+                <li>Brand design</li>
+                <li>User interface design</li>
+                <li>User experience design</li>
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+            </ul>
         </figure>
         <figure>
             <figcaption>Open-source projects</figcaption>
-            <p>Javascript libraries, Typescript libraries, guidelines, Sass & Scss mixins, various boilerplates, project collaborations.</p>
+            <ul>
+                <li>Javascript libraries</li>
+                <li>Typescript libraries</li>
+                <li>Guidelines</li>
+                <li>Scss mixins</li>
+                <li>Project collaborations</li>
+            </ul>
         </figure>
         <a href="#projects">Projects ↓</a>
     </section>
