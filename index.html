@@ -127,9 +127,14 @@
         }
       }
 
+      function getFullYear() {
+          document.querySelector('.fullYear').innerHTML = new Date().getFullYear().toFixed()
+      }
+
       window.addEventListener('load', () => {
         initForm();
         initServiceWorker();
+        getFullYear()
       });
     </script>
 </head>
@@ -252,7 +257,7 @@
             <a href="https://github.com/jaspero" target="_blank" rel="noopener">Github</a>
             <a href="https://www.behance.net/Jaspero" target="_blank" rel="noopener">Behance</a>
         </nav>
-        <p><small>© 2020  Jaspero</small></p>
+        <p><smal>© </smal><small class="fullYear"></small><small>  Jaspero</small></p>
     </section>
 </article>
 
