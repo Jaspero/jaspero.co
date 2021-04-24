@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: jaspero.co
+Token: 12310c2f3615f293544911437d86d521042c5fae3a2b00a43a57dff2662cf587
