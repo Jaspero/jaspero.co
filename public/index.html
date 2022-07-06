@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang=en><title>Jaspero</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content=#E65100><meta name=description content="Jaspero is a javascript development agency specialized at creating high quality and cutting edge applications for mobile, desktop and web environments."><meta name=keywords content="Angular,Ionic,Native Script,NodeJs,Mongo,Web Development,Elasticsearch,Web Design,Graphic Design"><meta name=author content=Jaspero><meta http-equiv=x-ua-compatible content="ie=edge"><script src=https://cdn.jsdelivr.net/npm/@analyzee/core@latest></script><script>"https://jaspero.co"===window.location.origin&&(window.analyzee=new Analyzee({api:"SNGJ2N8B-GG4L"}))</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-88746480-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><script type=application/ld+json id=jsonLd>{ "@context": "http://schema.org", "@type": "Organization", "name": "Jaspero", "legalName": "Jaspero Ltd.", "email": "info@jaspero.co", "url": "http://jaspero.co", "logo": "http://jaspero.co/assets/imgs/logo.svg", "sameAs": [ "https://twitter.com/jaspero_co", "https://www.linkedin.com/company/17911206", "https://instagram.com/jaspero.co/", "https://plus.google.com/u/0/b/106879308415476385523/106879308415476385523" ] }</script><link rel=icon type=image/x-icon href=assets/favicon.ico><link rel=manifest href=assets/manifest/manifest.json><style>@font-face{font-family:Gilroy;src:url(assets/Gilroy-Light.otf) format("opentype");font-weight:400}html{color:rgba(255,255,255,.7);line-height:1.5;font-size:calc(16px + 1vw);-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Gilroy,sans-serif;background:#000 url(assets/pattern.svg) fixed;scroll-behavior:smooth;overflow-x:hidden}body{margin:0}:focus::-moz-focus-inner{border:none}article{display:flex;align-items:baseline;min-height:100vh;scroll-snap-align:start}h1,h2{flex:1;position:sticky;top:10vh;text-align:right;margin:10vh -1px 2rem 0;padding:0 2rem;border-right:1px solid;color:#fff;font-weight:400;font-size:2rem;line-height:1}section{flex:2;padding:2rem 6rem 25vh 2rem}img{height:2rem;position:relative;top:.35rem;max-width:100%;max-height:100%}hr{margin:0;align-self:stretch;border:none;border-left:1px solid rgba(255,255,255,.2)}nav{margin-bottom:2rem}nav>a{margin-right:1rem;margin-bottom:1rem}a{position:relative;display:inline-block;color:#e65100;text-decoration:none;outline:0}a::before,button::before{content:'';position:absolute;top:0;right:0;width:0;height:1px;background:#e65100;transition:.2s}a::after,button::after{content:'';position:absolute;top:100%;left:0;width:0;height:1px;background:#e65100;transition:.2s}a:focus::before,a:hover::before,button:focus::before,button:hover::before{width:100%}a:focus::after,a:hover::after,button:focus::after,button:hover::after{width:100%}p,ul{margin:0 0 2rem}figcaption,strong{font-weight:400;color:#fff}figure{margin:0}form{position:relative;margin-bottom:2rem;padding-bottom:2rem;overflow:hidden}form.loading::before{content:'Sending';position:absolute;bottom:0;left:0}form.loading::after{content:'';position:absolute;z-index:2;bottom:0;left:-100%;height:1px;width:100%;background:#e65100;animation:loading 1.2s ease infinite}@keyframes loading{from{left:-100%}to{left:100%}}input,textarea{font-family:inherit;outline:0;font-size:inherit;color:inherit;background:rgba(255,255,255,.04);border:1px solid transparent;padding:.5rem;transition:.2s}input:focus,textarea:focus{background:rgba(255,255,255,.08)}textarea{resize:vertical;width:-moz-available;width:-webkit-fill-available}button{position:relative;outline:0;border:none;cursor:pointer;background:0 0;font-size:inherit;font-family:inherit;line-height:inherit;padding:0;color:#e65100;margin-left:6rem}button:focus{outline:0;border:none}label{display:flex;align-items:baseline;margin-bottom:1rem;background:0 0}label>span{width:6rem;flex-shrink:0;transition:.2s}label:focus-within>span{color:#fff}@media (max-width:1000px){article{flex-direction:column}h1,h2{position:static;border-right:none;flex:none}section{flex:none;padding:2rem 2rem 25vh}nav{display:flex;flex-direction:column;align-items:flex-start}hr{border-top:1px solid rgba(255,255,255,.2)}label{flex-direction:column}button{margin-left:0}}</style><script>function initForm() {
+        const conForm = document.querySelectorAll('input, textarea');
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function () {
+          const data = {};
+          for (let i = 0; i < conForm.length; i++) {
+            data[conForm[i].getAttribute('name')] = conForm[i].value;
+          }
+
+          event.preventDefault();
+          form.classList.add('loading');
+
+          fetch(`/api/contact`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(data)
+          })
+            .then((response) => {
+
+              form.classList.remove('loading');
+
+              if (response.status === 200) {
+                alert('Your message has been sent. Thank you for reaching out.');
+                form.reset()
+              } else {
+                alert('There was something wrong with your message.');
+              }
+
+            })
+            .catch(() => {
+              form.classList.remove('loading');
+              alert('There was something wrong with your message.');
+            });
+        });
+      }
+
+      function initServiceWorker() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        }
+      }
+
+      function getFullYear() {
+          document.querySelector('.fullYear').innerHTML = new Date().getFullYear().toFixed()
+      }
+
+      window.addEventListener('load', () => {
+        initForm();
+        initServiceWorker();
+        getFullYear()
+      });</script><article id=jaspero><h1>Jaspero</h1><hr><section><p><img src=assets/logo.svg alt="Jaspero logo."><p>We're a <strong>JavaScript</strong> development agency specialized in creating <strong>high quality</strong> and <strong>cutting edge</strong> applications for mobile, desktop and web environments.<nav><a href=#expertise>Expertise</a> <a href=#projects>Projects</a> <a href=#team>Team</a> <a href=#contact>Contact</a></nav></section></article><article id=expertise><h2>Expertise</h2><hr><section><figure><figcaption>Web development</figcaption><ul><li>Modern JS frameworks<li>Responsive layouts<li>Universal application development<li>RESTful API<li>Scalable architecture<li>Third-party integrations</ul></figure><figure><figcaption>Design</figcaption><ul><li>Brand design<li>User interface design<li>User experience design<li>Wireframing<li>Prototyping</ul></figure><figure><figcaption>Open-source projects</figcaption><ul><li>Javascript libraries<li>Typescript libraries<li>Guidelines<li>Scss mixins<li>Project collaborations</ul></figure><a href=#projects>Projects ↓</a></section></article><article id=projects><h2>Projects</h2><hr><section><p>A small sample of projects we've worked on or are still working on. We're always ready to conquer new ideas and accept new challenges. We also love working on open-source projects and sharing our ideas.<figure><figcaption><a href=https://www.dealerbible.com/ target=_black rel=noopener>Dealerbible</a></figcaption><p>A content management system for every area of your Auto Group or Dealership.</figure><figure><figcaption><a href=https://glycanage.com/ target=_black rel=noopener>GlycanAge</a></figcaption><figcaption></figcaption><p>Science-based laboratory tests that estimates a person's biological age.</figure><figure><figcaption><a href=https://github.com/Jaspero/jms target=_black rel=noopener>JMS</a></figcaption><p>A CMS based on Angular that is fully configurable through JSON schemas. Open-source.</figure><figure><figcaption><a href=https://fireshop.jaspero.co/ target=_black rel=noopener>Fireshop</a></figcaption><p>A webshop built on Firebase and the Angular framework. Open-source.</figure><a href=#team>Team ↓</a></section></article><article id=team><h2>Team</h2><hr><section><p>We're a group of experienced, enthusiastic, and innovative <strong>developers and designers</strong>, specialized in delivering <strong>great products</strong> to our customers. Our <strong>expertise</strong> is modern technologies, smart product design, and great user experience.<p>Additionally, we love to create tools and technologies that <strong>help developers</strong> (including ourselves) create projects more efficiently. In a rapidly growing industry, we believe that <strong>collaboration</strong> is the key to success.<p>We currently have <strong>14 developers</strong> trapped in a dark basement, working tirelessly for over <strong>7 years</strong> now.<p>We are also extremely proud of our sponsor and basement overseer - <a href=https://github.com/zorrie target=_blank rel=noopener>Zorrie</a>.</p><a href=#contact>Contact ↓</a></section></article><article id=contact><h2>Contact</h2><hr><section><p><strong>Let's work together!</strong><br>Send us an inquiry or a question:<form><label><span>Name</span> <input name=name required></label> <label><span>Email</span> <input type=email name=email required></label> <label><span>Message</span> <textarea rows=4 name=message required></textarea></label> <button type=submit>Submit</button></form><p>Other ways to contact us:<nav><a href=mailto:info@jaspero.co>info@jaspero.co</a> <a href=https://github.com/jaspero target=_blank rel=noopener>Github</a> <a href=https://www.behance.net/Jaspero target=_blank rel=noopener>Behance</a></nav><p><small>© </small><small class=fullYear></small><small> Jaspero</small></section></article>
