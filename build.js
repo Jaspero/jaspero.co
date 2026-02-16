@@ -1,6 +1,8 @@
 const {minify} = require('html-minifier');
-const {copy} = require('fs-extra');
+const {copy, ensureDirSync} = require('fs-extra');
 const {writeFileSync, readFileSync} = require('fs');
+
+ensureDirSync('public');
 
 writeFileSync(
   'public/index.html',

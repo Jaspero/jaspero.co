@@ -4,6 +4,7 @@
   "description": "Source code for the jaspero.co website",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && npx serve public -l 3000",
     "target-setup": "firebase target:apply hosting website jaspero-site",
     "build": "node build.js",
     "deploy": "firebase deploy --only hosting,functions:site"
