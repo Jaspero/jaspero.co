@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && npx serve public -l 3000",
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:serve\"",
+    "dev:css": "npx tailwindcss -i src/styles.css -o assets/styles.css --watch",
+    "dev:serve": "browser-sync start --server --files \"index.html, assets/**/*\" --no-notify",
     "target-setup": "firebase target:apply hosting website jaspero-site",
     "build": "node build.js",
     "deploy": "firebase deploy --only hosting,functions:site"
@@ -28,7 +31,11 @@
   },
   "homepage": "https://github.com/Jaspero/jaspero.co#readme",
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "fs-extra": "8.1.0",
-    "html-minifier": "4.0.0"
+    "html-minifier": "4.0.0",
+    "tailwindcss": "^4.1.18"
   }
 }
