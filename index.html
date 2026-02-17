@@ -40,7 +40,7 @@
             <img src="assets/logo.svg" alt="Jaspero" class="h-7 w-auto">
             Jaspero
         </a>
-        <nav class="flex items-center gap-8 max-[900px]:hidden">
+        <nav class="flex items-center gap-8 max-[1300px]:gap-4 max-[900px]:hidden">
             <a href="#services" class="no-underline text-text-body text-sm font-medium hover:text-primary transition-colors">Services</a>
             <a href="#tech-stack" class="no-underline text-text-body text-sm font-medium hover:text-primary transition-colors">Tech Stack</a>
             <a href="#student-program" class="no-underline text-text-body text-sm font-medium hover:text-primary transition-colors">Student Program</a>
@@ -50,15 +50,15 @@
             <a href="#contact" class="no-underline text-text-body text-sm font-medium hover:text-primary transition-colors">Contact</a>
         </nav>
         <a href="#contact" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold text-sm no-underline bg-primary text-white hover:bg-primary-hover transition-all max-[900px]:hidden">Contact Us</a>
-        <button class="hidden max-[900px]:flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1" onclick="toggleMobileNav()" aria-label="Menu">
-            <span class="block w-6 h-0.5 bg-text-dark transition-all"></span>
-            <span class="block w-6 h-0.5 bg-text-dark transition-all"></span>
-            <span class="block w-6 h-0.5 bg-text-dark transition-all"></span>
+        <button class="hamburger hidden max-[900px]:flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 relative w-8 h-8 items-center justify-center" onclick="toggleMobileNav()" aria-label="Menu" id="hamburgerBtn">
+            <span class="hamburger-line block w-6 h-0.5 bg-text-dark transition-all duration-300 origin-center"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-text-dark transition-all duration-300 origin-center"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-text-dark transition-all duration-300 origin-center"></span>
         </button>
     </div>
 </header>
 
-<nav class="mobile-nav fixed top-16 left-0 right-0 bg-white/[0.98] backdrop-blur-sm border-b border-border px-10 max-[500px]:px-4 pt-4 pb-6 flex-col gap-3 z-[999]" id="mobileNav">
+<nav class="mobile-nav fixed top-16 right-0 bottom-0 w-[280px] max-[500px]:w-full max-[500px]:top-0 max-[500px]:left-0 bg-white/[0.98] backdrop-blur-sm border-l border-border max-[500px]:border-l-0 px-10 max-[500px]:px-6 pt-6 max-[500px]:pt-20 pb-6 flex-col gap-3 z-[999]" id="mobileNav">
     <a href="#services" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Services</a>
     <a href="#tech-stack" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Tech Stack</a>
     <a href="#student-program" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Student Program</a>
@@ -67,6 +67,7 @@
     <a href="#faq" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">FAQ</a>
     <a href="#contact" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Contact</a>
 </nav>
+<div class="mobile-overlay fixed inset-0 bg-black/40 z-[22] hidden" id="mobileOverlay" onclick="closeMobileNav()"></div>
 
 <!-- ===== HERO ===== -->
 <section class="hero-pattern pt-36 pb-16 max-[900px]:pt-30 max-[900px]:pb-10 max-[500px]:pt-25 max-[500px]:pb-8 text-center">
@@ -85,7 +86,7 @@
 </section>
 
 <!-- ===== STATS ===== -->
-<section class="py-25 max-[900px]:py-12 max-[500px]:py-8 mt-10 bg-bg-white gradient-border-top">
+<section class="py-25 max-[900px]:py-12 max-[500px]:py-8 mt-10 gradient-border-top">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="grid grid-cols-4 max-[900px]:grid-cols-2 max-[500px]:grid-cols-1 gap-0 max-[900px]:gap-6 max-[500px]:gap-5">
             <div class="stat-item stat-item-responsive text-center max-[500px]:text-center px-10 gradient-border-right max-[900px]:border-r-0">
@@ -109,9 +110,9 @@
 </section>
 
 <!-- ===== CORE SERVICES ===== -->
-<section class="py-20 max-[900px]:py-16 max-[500px]:py-10 gradient-border-bottom" id="services">
+<section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="services">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <h2 class="text-[32px] font-semibold text-text-dark text-center mb-4">Our Core <em class="italic font-semibold">Services</em></h2>
+        <h2 class="text-[32px] font-semibold text-text-dark text-center mb-4">Our Core <span class="text-primary font-semibold">Services</span></h2>
         <p class="text-base text-text-muted text-center max-w-[520px] mx-auto mb-12 leading-relaxed">We specialize in delivering comprehensive AI solutions and custom business applications that drive real results.</p>
         <div class="grid grid-cols-3 max-[900px]:grid-cols-1 max-[900px]:max-w-[500px] max-[900px]:mx-auto gap-6">
             <div class="service-card border border-border rounded-xl p-8 bg-bg-white transition-all hover:shadow-lg hover:-translate-y-0.5">
@@ -150,7 +151,7 @@
 
 <!-- ===== TRUSTED BY LEADERS ===== -->
 <section class="py-16 overflow-hidden">
-    <h2 class="text-[32px] font-semibold text-text-dark text-center mb-10">Trusted by <em class="italic font-bold text-primary">Industry Leaders</em></h2>
+    <h2 class="text-[32px] font-semibold text-text-dark text-center mb-10">Trusted by <span class="font-bold text-primary">Industry Leaders</span></h2>
     <div class="leaders-slider flex items-center gap-16 max-[900px]:gap-12 max-[500px]:gap-10 w-max">
         <img src="assets/images/leaders-1.png" alt="Partner company" class="h-9 max-[900px]:h-8 max-[500px]:h-6 w-auto shrink-0 opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
         <img src="assets/images/leaders-2.png" alt="Four" class="h-9 max-[900px]:h-8 max-[500px]:h-6 w-auto shrink-0 opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
@@ -172,25 +173,25 @@
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="py-10 max-[900px]:py-6">
             <div class="mb-8">
-                <div class="inline-flex items-center gap-2 text-[13px] text-text-muted mb-3 border border-border px-3.5 py-1.5 rounded-full">- Powered by expertise <img src="assets/images/Vector 3.svg" alt="" class="h-4 ml-1"></div>
+                <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- Powered by expertise <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
                 <h2 class="text-[32px] font-bold text-text-dark mb-2">Our <em class="italic text-primary">tech stack, your choice.</em></h2>
                 <p class="text-[15px] text-text-muted leading-relaxed max-w-[460px]">Our idea deserves the right technology. We help you choose the perfect stack — and then we make it happen.</p>
             </div>
-            <div class="grid grid-cols-7 max-[900px]:grid-cols-4 max-[500px]:grid-cols-3">
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-13.png" alt="Vercel" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-17.png" alt="Next.js" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/Frame 14.png" alt="React" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-11.png" alt="Svelte" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-10.png" alt="Angular" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-9.png" alt="Vue.js" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-8.png" alt="Python" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-7.png" alt="TypeScript" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-6.png" alt="Node.js" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-5.png" alt="Three.js" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-4.png" alt="Google AI" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-3.png" alt="TensorFlow" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-2.png" alt="Starburst" class="max-w-12 max-h-12"></div>
-                <div class="aspect-square flex items-center justify-center border border-[#D2D2D2] p-5 max-[900px]:p-3.5 -m-px"><img src="assets/images/stack-1.png" alt="Bot" class="max-w-12 max-h-12"></div>
+            <div class="grid grid-cols-7 max-[900px]:grid-cols-4 max-[500px]:grid-cols-3 border-t border-l border-[#D2D2D2]">
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-13.png" alt="Vercel" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-17.png" alt="Next.js" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/Frame 14.png" alt="React" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-11.png" alt="Svelte" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-10.png" alt="Angular" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-9.png" alt="Vue.js" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-8.png" alt="Python" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-7.png" alt="TypeScript" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-6.png" alt="Node.js" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-5.png" alt="Three.js" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-4.png" alt="Google AI" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-3.png" alt="TensorFlow" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-2.png" alt="Starburst" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
+                <div class="aspect-square flex items-center justify-center border-r border-b border-[#D2D2D2] p-5 max-[900px]:p-3.5 max-[500px]:p-2.5"><img src="assets/images/stack-1.png" alt="Bot" class="w-[60px] h-[60px] max-[900px]:w-[45px] max-[900px]:h-[45px] max-[500px]:w-[35px] max-[500px]:h-[35px] object-contain"></div>
             </div>
         </div>
     </div>
@@ -199,7 +200,7 @@
 <!-- ===== WHY CHOOSE JASPERO ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-16 max-[900px]:gap-8 items-center">
+        <div class="grid grid-cols-2 max-[700px]:grid-cols-1 gap-16 max-[700px]:gap-8 items-center">
             <div>
                 <h2 class="text-[clamp(26px,3.5vw,36px)] font-bold text-text-dark mb-3">Why Choose <em class="italic">Jaspero?</em></h2>
                 <p class="text-[15px] text-text-muted leading-relaxed mb-8">We combine deep technical expertise with business acumen to deliver solutions that truly transform operations.</p>
@@ -218,7 +219,7 @@
                     </div>
                 </div>
                 <div class="flex gap-4 mb-7">
-                    <div class="w-10 h-10 min-w-10 rounded-[10px] flex items-center justify-center mt-0.5 bg-[#25A6EC]"><img src="assets/images/support.svg" alt="" class="w-5 h-5 brightness-0 invert"></div>
+                    <div class="w-10 h-10 min-w-10 rounded-[10px] flex items-center justify-center mt-0.5 bg-[#E65100]"><img src="assets/images/support.svg" alt="" class="w-5 h-5 brightness-0 invert"></div>
                     <div>
                         <h3 class="text-base font-semibold text-text-dark mb-1">Ongoing Support</h3>
                         <p class="text-sm text-text-muted leading-relaxed">From implementation to maintenance, we provide continuous support to ensure your systems perform optimally.</p>
@@ -239,54 +240,56 @@
 <!-- ===== OUR PROCESS ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="process">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-10 items-start">
-            <div>
-                <div class="inline-flex items-center gap-2 text-[13px] text-text-muted mb-3 border border-border px-3.5 py-1.5 rounded-full">- Our process</div>
-                <h2 class="text-[32px] font-bold text-text-dark mb-4">From <em class="italic">Idea</em> to <em class="italic">Launch</em> – in 5 Steps</h2>
-                <p class="text-[15px] text-text-muted leading-relaxed">A systematic approach to delivering AI solutions that drive measurable business impact.</p>
+        <!-- Top row: header + steps 1 & 2 -->
+        <div class="flex max-[900px]:flex-col gap-10 max-[900px]:gap-8 items-end">
+            <div class="max-w-[380px] w-full shrink-0 max-[900px]:max-w-none pb-4 max-[900px]:pb-0">
+                <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- Our process <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
+                <h2 class="text-[32px] max-[500px]:text-[24px] font-bold text-text-dark mb-4">From <em class="italic">Idea</em> to <em class="italic">Launch</em> – in 5 Steps</h2>
+                <p class="text-[16px] max-[500px]:text-[14px] text-text-muted leading-relaxed">A systematic approach to delivering AI solutions that drive measurable business impact.</p>
             </div>
-            <div class="grid grid-cols-2 max-[500px]:grid-cols-1 gap-5">
-                <div class="step active py-3 flex items-start">
-                    <div class="step-number-wrap active shrink-0"><span class="text-[160px] max-[500px]:text-[100px] font-bold text-primary leading-[0.78] tracking-[-3px] block">1</span></div>
-                    <div class="step-content flex flex-col max-w-[200px] max-[900px]:max-w-none">
-                        <div class="w-7 h-7 rounded-lg bg-primary-10 flex items-center justify-center mb-2"><img src="assets/images/process-5.svg" alt="" class="w-4 h-4"></div>
-                        <h3 class="text-base font-bold text-primary mb-1.5 leading-tight">Discovery<br>&amp;Research</h3>
-                        <p class="text-[13px] text-text-muted leading-relaxed">We analyze your needs, goals, and opportunities.</p>
+            <div class="flex flex-1 max-[900px]:w-full max-[600px]:flex-col justify-between gap-5">
+                <div class="step flex items-stretch gap-3">
+                    <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">1</span></div>
+                    <div class="step-content flex flex-col justify-end">
+                        <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-5.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
+                        <h3 class="text-base max-[500px]:text-sm font-bold text-text-dark mb-1.5 leading-tight">Discovery<br>&amp;Research</h3>
+                        <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We analyze your needs, goals, and opportunities.</p>
                     </div>
                 </div>
-                <div class="step py-3 flex items-start">
-                    <div class="step-number-wrap shrink-0"><span class="text-[160px] max-[500px]:text-[100px] font-bold text-black/6 leading-[0.78] tracking-[-3px] block">2</span></div>
-                    <div class="step-content flex flex-col max-w-[200px] max-[900px]:max-w-none">
-                        <div class="w-7 h-7 rounded-lg bg-primary-10 flex items-center justify-center mb-2"><img src="assets/images/process-4.svg" alt="" class="w-4 h-4"></div>
-                        <h3 class="text-base font-bold text-text-dark mb-1.5 leading-tight">Strategy<br>&amp; Planning</h3>
-                        <p class="text-[13px] text-text-muted leading-relaxed">We define the roadmap, technologies, and timeline.</p>
+                <div class="step flex items-stretch gap-3">
+                    <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">2</span></div>
+                    <div class="step-content flex flex-col justify-end">
+                        <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-4.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
+                        <h3 class="text-base max-[500px]:text-sm font-bold text-text-dark mb-1.5 leading-tight">Strategy<br>&amp; Planning</h3>
+                        <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We define the roadmap, technologies, and timeline.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-3 max-[900px]:grid-cols-3 max-[500px]:grid-cols-1 gap-5 mt-4">
-            <div class="step py-3 flex items-start">
-                <div class="step-number-wrap shrink-0"><span class="text-[160px] max-[500px]:text-[100px] font-bold text-black/6 leading-[0.78] tracking-[-3px] block">3</span></div>
-                <div class="step-content flex flex-col max-w-[200px] max-[900px]:max-w-none">
-                    <div class="w-7 h-7 rounded-lg bg-primary-10 flex items-center justify-center mb-2"><img src="assets/images/process-2.svg" alt="" class="w-4 h-4"></div>
-                    <h3 class="text-base font-bold text-text-dark mb-1.5 leading-tight">Design<br>&amp; Development</h3>
-                    <p class="text-[13px] text-text-muted leading-relaxed">We create the UI/UX and build the product.</p>
+        <!-- Bottom row: steps 3, 4, 5 -->
+        <div class="flex flex-wrap max-[600px]:flex-col justify-between gap-5 mt-16 max-[900px]:mt-10 max-[600px]:mt-6">
+            <div class="step flex items-stretch gap-3">
+                <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">3</span></div>
+                <div class="step-content flex flex-col justify-end">
+                    <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-2.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
+                    <h3 class="text-base max-[500px]:text-sm font-bold text-text-dark mb-1.5 leading-tight">Design<br>&amp; Development</h3>
+                    <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We create the UI/UX and build the product.</p>
                 </div>
             </div>
-            <div class="step py-3 flex items-start">
-                <div class="step-number-wrap shrink-0"><span class="text-[160px] max-[500px]:text-[100px] font-bold text-black/6 leading-[0.78] tracking-[-3px] block">4</span></div>
-                <div class="step-content flex flex-col max-w-[200px] max-[900px]:max-w-none">
-                    <div class="w-7 h-7 rounded-lg bg-primary-10 flex items-center justify-center mb-2"><img src="assets/images/process-3.svg" alt="" class="w-4 h-4"></div>
-                    <h3 class="text-base font-bold text-text-dark mb-1.5 leading-tight">Testing<br>&amp; Improvement</h3>
-                    <p class="text-[13px] text-text-muted leading-relaxed">We test across devices and optimize performance.</p>
+            <div class="step flex items-stretch gap-3">
+                <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">4</span></div>
+                <div class="step-content flex flex-col justify-end">
+                    <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-3.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
+                    <h3 class="text-base max-[500px]:text-sm font-bold text-text-dark mb-1.5 leading-tight">Testing<br>&amp; Improvement</h3>
+                    <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We test across devices and optimize performance.</p>
                 </div>
             </div>
-            <div class="step py-3 flex items-start">
-                <div class="step-number-wrap shrink-0"><span class="text-[160px] max-[500px]:text-[100px] font-bold text-black/6 leading-[0.78] tracking-[-3px] block">5</span></div>
-                <div class="step-content flex flex-col max-w-[200px] max-[900px]:max-w-none">
-                    <div class="w-7 h-7 rounded-lg bg-primary-10 flex items-center justify-center mb-2"><img src="assets/images/process-1.svg" alt="" class="w-4 h-4"></div>
-                    <h3 class="text-base font-bold text-text-dark mb-1.5 leading-tight">Launch<br>&amp; Support</h3>
-                    <p class="text-[13px] text-text-muted leading-relaxed">We deploy the solution and provide ongoing support.</p>
+            <div class="step flex items-stretch gap-3">
+                <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">5</span></div>
+                <div class="step-content flex flex-col justify-end">
+                    <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-1.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
+                    <h3 class="text-base max-[500px]:text-sm font-bold text-text-dark mb-1.5 leading-tight">Launch<br>&amp; Support</h3>
+                    <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We deploy the solution and provide ongoing support.</p>
                 </div>
             </div>
         </div>
@@ -295,64 +298,116 @@
 
 <!-- ===== TESTIMONIALS ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="testimonials">
-    <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="grid grid-cols-3 max-[900px]:grid-cols-2 max-[500px]:grid-cols-1 gap-6 items-stretch">
-            <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col">
-                <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">Working with this team exceeded all expectations. Everything was transparent, fast, and executed with high quality. For the first time, I felt truly understood and supported.</blockquote>
-                <div class="flex items-center gap-3 mt-auto">
-                    <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">EC</div>
-                    <div>
-                        <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Emma Colling</strong>
-                        <small class="text-xs text-text-muted">Product Manager</small>
+    <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 pb-20 border-b border-[#D9D9D9]">
+        <div class="flex max-[900px]:flex-col gap-8 items-stretch">
+            <!-- Slider area: 2 cards visible -->
+            <div class="w-[60%] max-[900px]:w-full shrink-0 overflow-hidden">
+                <div id="testimonialTrack" class="flex gap-6 transition-transform duration-500 ease-in-out">
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">Working with this team exceeded all expectations. Everything was transparent, fast, and executed with high quality. For the first time, I felt truly understood and supported.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">EC</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Emma Collins</strong>
+                                <small class="text-xs text-text-muted">Marketing Specialist</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">I started seeing results within weeks. I finally have direction, structure, and confidence in what I'm doing. Highly recommended to anyone who wants real progress.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">LB</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Liam Brooks</strong>
+                                <small class="text-xs text-text-muted">Software Developer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">The team delivered a seamless AI integration that transformed our workflow. Their attention to detail and proactive communication made the entire process incredibly smooth.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">SR</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Sophie Reynolds</strong>
+                                <small class="text-xs text-text-muted">CTO, TechVentures</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">From the initial consultation to the final deployment, Jaspero exceeded our expectations. Their expertise in process automation saved us hundreds of hours monthly.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">MK</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Marco Kovač</strong>
+                                <small class="text-xs text-text-muted">Operations Director</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">Outstanding collaboration and top-tier engineering. They didn't just build what we asked for — they challenged our assumptions and delivered something even better.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">AH</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Ana Horvat</strong>
+                                <small class="text-xs text-text-muted">Product Lead, GlycanAge</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
+                        <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">We needed a reliable partner for a complex data pipeline project. Jaspero delivered on time, on budget, and the solution has been running flawlessly for over a year.</blockquote>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">DW</div>
+                            <div>
+                                <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Daniel Weber</strong>
+                                <small class="text-xs text-text-muted">Data Engineer</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col">
-                <blockquote class="text-sm text-text-body leading-relaxed flex-1 mb-5">I started seeing results within weeks. I finally have direction, structure, and confidence in what I'm doing. Highly recommended to anyone who wants real progress.</blockquote>
-                <div class="flex items-center gap-3 mt-auto">
-                    <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center text-sm font-semibold text-text-muted shrink-0">LB</div>
-                    <div>
-                        <strong class="text-[13px] text-text-dark block uppercase tracking-wide">Liam Brooks</strong>
-                        <small class="text-xs text-text-muted">Startup Founder</small>
+            <!-- Highlight + Arrows -->
+            <div class="flex-1 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-5">
+                    <img class="w-12 h-12" src="assets/images/quotes.svg" alt="">
+                    <div class="flex gap-2 ml-auto">
+                        <button onclick="slideTestimonials(-1)" class="w-10 h-10 rounded-full bg-[#353535] hover:bg-primary flex items-center justify-center transition-colors cursor-pointer border-none"><img src="assets/images/prev.svg" alt="Previous" class="w-5 h-5"></button>
+                        <button onclick="slideTestimonials(1)" class="w-10 h-10 rounded-full bg-[#353535] hover:bg-primary flex items-center justify-center transition-colors cursor-pointer border-none"><img src="assets/images/next.svg" alt="Next" class="w-5 h-5"></button>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-col justify-center p-7">
-                <img class="w-12 h-12 mb-5" src="assets/images/quotes.svg" alt="">
-                <div class="text-[13px] text-primary font-semibold mb-2">Testimonials</div>
-                <h3 class="text-[22px] font-bold text-text-dark leading-tight mb-3">Because results speak louder than <em class="italic">words.</em></h3>
-                <p class="text-sm text-text-muted leading-relaxed">Each story represents a journey. A moment of courage. A step toward something better.</p>
+                <p class="text-[14px] text-primary mb-2">- Testimonials</p>
+                <h3 class="text-[20px] font-[600] text-[#353535] leading-tight mb-3">Because results speak louder than <em class="italic">words.</em></h3>
+                <p class="text-[20px] text-[#353535] leading-relaxed">Each story represents a journey. A moment of courage. A step toward something better.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ===== STUDENT PROGRAM ===== -->
-<section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="student-program">
+<section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="student-program">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="border-2 border-primary rounded-2xl overflow-hidden grid grid-cols-2 max-[900px]:grid-cols-1">
-            <div class="bg-bg-gray min-h-[360px]">
-                <img src="assets/images/student.jpg" alt="Student working on laptop" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="rounded-2xl overflow-hidden grid grid-cols-2 max-[700px]:grid-cols-1">
+            <div class="bg-bg-gray min-h-[360px] rounded-2xl overflow-hidden">
+                <img src="assets/images/student.png" alt="Student working on laptop" class="w-full h-full object-cover rounded-2xl" onerror="this.style.display='none'">
             </div>
-            <div class="p-10 max-[900px]:p-7 max-[500px]:p-5">
+            <div class="p-10 max-[700px]:p-7 max-[500px]:p-5">
                 <h2 class="text-2xl font-bold text-text-dark mb-2">Jaspero <em class="italic text-primary">Student</em> Program</h2>
                 <p class="text-sm text-text-muted mb-7">A program for ambitious students - get hands-on experience</p>
                 <div class="flex gap-4 mb-6">
-                    <div class="w-7 h-7 min-w-7 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center mt-0.5">1</div>
+                    <div class="text-primary text-sm font-bold mt-0.5">1.</div>
                     <div>
                         <h3 class="text-[15px] font-semibold text-text-dark mb-1">Professional Development Learning</h3>
                         <p class="text-[13px] text-text-muted leading-relaxed">Access learning resources and guidance from our dedicated team who are ready to help you build essential career skills.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 mb-6">
-                    <div class="w-7 h-7 min-w-7 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center mt-0.5">2</div>
+                    <div class="text-primary text-sm font-bold mt-0.5">2.</div>
                     <div>
                         <h3 class="text-[15px] font-semibold text-text-dark mb-1">Experienced Mentorship provided</h3>
                         <p class="text-[13px] text-text-muted leading-relaxed">Connect with accomplished professionals and industry veterans through structured mentoring relationships that provide personalized guidance.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 mb-6">
-                    <div class="w-7 h-7 min-w-7 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center mt-0.5">3</div>
+                    <div class="text-primary text-sm font-bold mt-0.5">3.</div>
                     <div>
                         <h3 class="text-[15px] font-semibold text-text-dark mb-1">Real-world Project Experience</h3>
                         <p class="text-[13px] text-text-muted leading-relaxed">Gain practical, hands-on experience by working on live client projects and industry case studies, developing a portfolio of work.</p>
@@ -364,16 +419,16 @@
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="faq">
+<section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="faq">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="inline-flex items-center gap-2 text-[13px] text-text-muted mb-3 border border-border px-3.5 py-1.5 rounded-full">- FAQ</div>
+        <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- FAQ <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
         <h2 class="text-[32px] font-semibold text-text-dark text-left mb-8">Your Questions <em class="italic font-semibold">Answered</em></h2>
         <div class="flex flex-col border-t border-border">
-            <div class="faq-item active border-b border-border">
+            <div class="faq-item border-b border-border">
                 <button class="faq-question w-full py-5 flex items-center gap-4 bg-transparent border-none cursor-pointer font-sans text-base max-[500px]:text-sm font-medium text-text-dark text-left hover:text-primary transition-colors" onclick="toggleFaq(this)">
                     <span class="text-sm font-semibold text-primary min-w-7">01</span>
                     Do you work with small and medium-sized businesses?
-                    <span class="ml-auto w-6 h-6 shrink-0 flex items-center justify-center"><img src="assets/images/-.svg" alt="" class="w-5 h-5"></span>
+                    <span class="faq-toggle ml-auto w-6 h-6 shrink-0 relative"><span class="faq-icon"></span></span>
                 </button>
                 <div class="faq-answer">
                     <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Yes, we work with businesses of all sizes. Whether you're a startup, SME, or enterprise, we tailor our solutions to fit your specific needs and budget. Many of our most successful projects have been with small and medium-sized businesses looking to leverage AI and automation.</div>
@@ -383,40 +438,40 @@
                 <button class="faq-question w-full py-5 flex items-center gap-4 bg-transparent border-none cursor-pointer font-sans text-base max-[500px]:text-sm font-medium text-text-dark text-left hover:text-primary transition-colors" onclick="toggleFaq(this)">
                     <span class="text-sm font-semibold text-primary min-w-7">02</span>
                     How long does a software project take?
-                    <span class="ml-auto w-6 h-6 shrink-0 flex items-center justify-center"><img src="assets/images/+.svg" alt="" class="w-5 h-5"></span>
+                    <span class="faq-toggle ml-auto w-6 h-6 shrink-0 relative"><span class="faq-icon"></span></span>
                 </button>
                 <div class="faq-answer">
-                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Project timelines vary depending on complexity. A typical MVP takes 2-3 months, while larger enterprise projects can take 4-8 months. We provide detailed timelines during the planning phase.</div>
+                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Project timelines vary depending on complexity. A typical MVP takes 2-3 months, while larger enterprise projects can take 4-8 months. We provide detailed timelines during the planning phase and keep you updated throughout the development process.</div>
                 </div>
             </div>
             <div class="faq-item border-b border-border">
                 <button class="faq-question w-full py-5 flex items-center gap-4 bg-transparent border-none cursor-pointer font-sans text-base max-[500px]:text-sm font-medium text-text-dark text-left hover:text-primary transition-colors" onclick="toggleFaq(this)">
                     <span class="text-sm font-semibold text-primary min-w-7">03</span>
                     Do you offer post-launch support and maintenance?
-                    <span class="ml-auto w-6 h-6 shrink-0 flex items-center justify-center"><img src="assets/images/+.svg" alt="" class="w-5 h-5"></span>
+                    <span class="faq-toggle ml-auto w-6 h-6 shrink-0 relative"><span class="faq-icon"></span></span>
                 </button>
                 <div class="faq-answer">
-                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Yes, we provide ongoing maintenance and support packages including bug fixes, performance monitoring, feature updates, and technical consulting to ensure your solution continues to perform optimally.</div>
+                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Absolutely. We provide comprehensive post-launch support including bug fixes, performance monitoring, security updates, feature enhancements, and dedicated technical consulting to ensure your solution runs smoothly long after deployment.</div>
                 </div>
             </div>
             <div class="faq-item border-b border-border">
                 <button class="faq-question w-full py-5 flex items-center gap-4 bg-transparent border-none cursor-pointer font-sans text-base max-[500px]:text-sm font-medium text-text-dark text-left hover:text-primary transition-colors" onclick="toggleFaq(this)">
                     <span class="text-sm font-semibold text-primary min-w-7">04</span>
                     How can I start working with your company?
-                    <span class="ml-auto w-6 h-6 shrink-0 flex items-center justify-center"><img src="assets/images/+.svg" alt="" class="w-5 h-5"></span>
+                    <span class="faq-toggle ml-auto w-6 h-6 shrink-0 relative"><span class="faq-icon"></span></span>
                 </button>
                 <div class="faq-answer">
-                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Simply reach out through our contact form or email us at info@jaspero.co. We'll schedule a free consultation to discuss your project requirements, goals, and how we can help bring your vision to life.</div>
+                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Getting started is simple. Reach out through our contact form or email us at info@jaspero.co, and we'll schedule a free consultation. During the call, we'll discuss your goals, evaluate the project scope, and propose a tailored roadmap to bring your vision to life.</div>
                 </div>
             </div>
             <div class="faq-item border-b border-border">
                 <button class="faq-question w-full py-5 flex items-center gap-4 bg-transparent border-none cursor-pointer font-sans text-base max-[500px]:text-sm font-medium text-text-dark text-left hover:text-primary transition-colors" onclick="toggleFaq(this)">
                     <span class="text-sm font-semibold text-primary min-w-7">05</span>
                     How much does software or website development cost?
-                    <span class="ml-auto w-6 h-6 shrink-0 flex items-center justify-center"><img src="assets/images/+.svg" alt="" class="w-5 h-5"></span>
+                    <span class="faq-toggle ml-auto w-6 h-6 shrink-0 relative"><span class="faq-icon"></span></span>
                 </button>
                 <div class="faq-answer">
-                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Costs depend on the project scope, complexity, and timeline. We offer flexible pricing models including fixed-price and time-and-materials arrangements. Contact us for a free estimate tailored to your specific requirements.</div>
+                    <div class="pb-5 pl-11 text-sm text-text-muted leading-relaxed">Costs depend on the project scope, complexity, and timeline. We offer flexible pricing models including fixed-price and time-and-materials arrangements. Most projects range from a few thousand to tens of thousands of euros. Contact us for a free, no-obligation estimate tailored to your specific requirements.</div>
                 </div>
             </div>
         </div>
@@ -426,31 +481,31 @@
 <!-- ===== CONTACT ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="contact">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="grid grid-cols-[1fr_1.2fr] max-[900px]:grid-cols-1 gap-16 max-[900px]:gap-8 items-start">
+        <div class="grid grid-cols-[1fr_1.2fr] max-[900px]:grid-cols-1 gap-16 max-[900px]:gap-8 items-stretch">
             <div>
                 <h2 class="text-[clamp(24px,3vw,32px)] font-bold text-text-dark mb-3"><em class="italic text-primary">Get in touch</em> with us</h2>
                 <p class="text-sm text-text-muted leading-relaxed mb-7">Got questions or need assistance? Reach out and we'll get back to you as soon as possible.</p>
-                <div class="flex items-center gap-3 px-4 py-3.5 border border-border rounded-lg mb-3 text-sm text-text-body">
-                    <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                    info@jaspero.co
-                </div>
-                <div class="flex items-center gap-3 px-4 py-3.5 border border-border rounded-lg mb-3 text-sm text-text-body">
-                    <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                    +385692001717
-                </div>
-                <div class="flex items-center gap-3 px-4 py-3.5 border border-border rounded-lg mb-3 text-sm text-text-body">
-                    <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                    Dr Mihka ulica 5, 31000 Osijek, Croatia
-                </div>
+                <label class="flex items-center gap-4 px-4 rounded-lg bg-white border border-[#D7D7D7] w-full mb-3 h-[70px] cursor-text">
+                    <div class="w-10 h-10 min-w-10 rounded-[10px] bg-primary-10 flex items-center justify-center shrink-0"><img src="assets/images/jp-email.svg" alt="" class="w-5 h-5"></div>
+                    <input type="text" value="info@jaspero.co" class="font-sans text-sm text-text-body bg-transparent border-none outline-none w-full h-full">
+                </label>
+                <label class="flex items-center gap-4 px-4 rounded-lg bg-white border border-[#D7D7D7] w-full mb-3 h-[70px] cursor-text">
+                    <div class="w-10 h-10 min-w-10 rounded-[10px] bg-primary-10 flex items-center justify-center shrink-0"><img src="assets/images/jp-phone.svg" alt="" class="w-5 h-5"></div>
+                    <input type="text" value="+385692001717" class="font-sans text-sm text-text-body bg-transparent border-none outline-none w-full h-full">
+                </label>
+                <label class="flex items-center gap-4 px-4 rounded-lg bg-white border border-[#D7D7D7] w-full mb-3 h-[70px] cursor-text">
+                    <div class="w-10 h-10 min-w-10 rounded-[10px] bg-primary-10 flex items-center justify-center shrink-0"><img src="assets/images/jp-location.svg" alt="" class="w-5 h-5"></div>
+                    <input type="text" value="Dr Mihka ulica 5, 31000 Osijek, Croatia" class="font-sans text-sm text-text-body bg-transparent border-none outline-none w-full h-full">
+                </label>
             </div>
-            <div>
-                <form class="flex flex-col gap-4" id="contactForm">
+            <div class="bg-white rounded-2xl p-5 flex flex-col">
+                <form class="flex flex-col gap-4 flex-1" id="contactForm">
                     <div class="grid grid-cols-2 max-[900px]:grid-cols-1 gap-4">
-                        <input type="text" name="name" placeholder="John" required class="font-sans text-[15px] px-4 py-3.5 border border-border rounded-lg bg-bg-white text-text-dark outline-none transition-all focus:border-primary focus:ring-3 focus:ring-primary/10 w-full">
-                        <input type="email" name="email" placeholder="johndoe@gmail.com" required class="font-sans text-[15px] px-4 py-3.5 border border-border rounded-lg bg-bg-white text-text-dark outline-none transition-all focus:border-primary focus:ring-3 focus:ring-primary/10 w-full">
+                        <input type="text" name="name" placeholder="John" required class="font-sans text-[15px] px-4 border-none rounded-lg bg-[#D7D7D733] text-text-dark outline-none transition-all focus:ring-2 focus:ring-primary/20 w-full h-[45px]">
+                        <input type="email" name="email" placeholder="johndoe@gmail.com" required class="font-sans text-[15px] px-4 border-none rounded-lg bg-[#D7D7D733] text-text-dark outline-none transition-all focus:ring-2 focus:ring-primary/20 w-full h-[45px]">
                     </div>
-                    <textarea name="message" placeholder="Your inquiry goes here..." rows="5" required class="font-sans text-[15px] px-4 py-3.5 border border-border rounded-lg bg-bg-white text-text-dark outline-none transition-all focus:border-primary focus:ring-3 focus:ring-primary/10 w-full resize-y min-h-[120px]"></textarea>
-                    <button type="submit" class="w-full flex justify-center items-center gap-2 py-3.5 rounded-lg font-semibold text-base no-underline bg-primary text-white hover:bg-primary-hover transition-all border-none cursor-pointer font-sans">Contact us</button>
+                    <textarea name="message" placeholder="Your inquiry goes here..." rows="5" required class="font-sans text-[15px] px-4 py-3.5 border-none rounded-lg bg-[#D7D7D733] text-text-dark outline-none transition-all focus:ring-2 focus:ring-primary/20 w-full resize-y flex-1 min-h-[120px]"></textarea>
+                    <button type="submit" class="w-full flex justify-center items-center gap-2 h-[45px] rounded-lg font-semibold text-base no-underline bg-primary text-white hover:bg-primary-hover transition-all border-none cursor-pointer font-sans">Contact us</button>
                     <div class="form-status hidden p-3 rounded-lg text-sm font-medium" id="formStatus"></div>
                 </form>
             </div>
@@ -461,20 +516,20 @@
 <!-- ===== CTA BANNER ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <div class="bg-linear-to-br from-[#1a1a1a] via-[#2d1a0e] to-[#3d1a00] rounded-2xl p-12 max-[900px]:p-6 max-[500px]:p-4 grid grid-cols-2 max-[900px]:grid-cols-1 max-[900px]:text-center gap-10 items-center text-white">
+        <div class="bg-linear-to-br from-[#1a1a1a] via-[#2d1a0e] to-[#3d1a00] rounded-2xl px-12 max-[900px]:px-6 max-[500px]:px-4 h-[380px] max-[900px]:h-auto max-[900px]:py-6 grid grid-cols-2 max-[900px]:grid-cols-1 max-[900px]:text-center gap-10 items-end pb-12 max-[900px]:pb-6 text-white">
             <div>
-                <img class="h-9 mb-5" src="assets/logo.svg" alt="Jaspero">
-                <h2 class="text-[clamp(24px,3vw,32px)] max-[500px]:text-[22px] font-bold leading-tight">Ready to Transform Your Business?</h2>
+                <div class="flex items-center gap-2 mb-5"><img class="h-9" src="assets/logo.svg" alt="Jaspero"><span class="text-lg font-semibold">Jaspero</span></div>
+                <h2 class="text-[36px] max-[500px]:text-[24px] font-bold leading-tight">Ready to Transform Your Business?</h2>
             </div>
             <div>
-                <p class="text-[15px] text-white/70 leading-relaxed">Let's discuss how AI integration and process automation can drive growth and efficiency for your organization.</p>
+                <p class="text-[24px] max-[500px]:text-[18px] text-white/70 leading-relaxed">Let's discuss how AI integration and process automation can drive growth and efficiency for your organization.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="py-6 border-t border-border bg-bg-white">
+<footer class="py-6 border-t border-[#D9D9D9] bg-bg-white">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="flex items-center justify-between max-[900px]:flex-col max-[900px]:gap-4 max-[900px]:text-center">
             <a href="#" class="flex items-center gap-2 no-underline text-text-dark font-semibold text-base">
@@ -486,6 +541,7 @@
             </div>
             <div class="flex items-center gap-5">
                 <a href="#" class="no-underline text-text-muted text-[13px] hover:text-primary transition-colors">Terms of Service</a>
+                <span class="w-px h-4 bg-[#35353533]"></span>
                 <a href="#" class="no-underline text-text-muted text-[13px] hover:text-primary transition-colors">Privacy Policy</a>
                 <div class="flex gap-3">
                     <a href="https://www.linkedin.com/company/17911206" target="_blank" rel="noopener" class="flex"><img src="assets/images/linkedin.png" alt="LinkedIn" class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"></a>
@@ -499,22 +555,48 @@
 <script>
     function toggleMobileNav() {
         document.getElementById('mobileNav').classList.toggle('open');
+        document.getElementById('mobileOverlay').classList.toggle('open');
+        document.getElementById('hamburgerBtn').classList.toggle('open');
+        document.body.classList.toggle('nav-open');
     }
     function closeMobileNav() {
         document.getElementById('mobileNav').classList.remove('open');
+        document.getElementById('mobileOverlay').classList.remove('open');
+        document.getElementById('hamburgerBtn').classList.remove('open');
+        document.body.classList.remove('nav-open');
     }
 
-    function toggleFaq(btn) {
-        const item = btn.closest('.faq-item');
-        const wasActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(el => {
-            el.classList.remove('active');
-            el.querySelector('.faq-toggle img').src = 'assets/images/+.svg';
-        });
-        if (!wasActive) {
-            item.classList.add('active');
-            item.querySelector('.faq-toggle img').src = 'assets/images/-.svg';
+    var tIndex = 0;
+    var tGap = 24;
+    function sizeTestimonialCards() {
+        var track = document.getElementById('testimonialTrack');
+        var container = track.parentElement;
+        var containerW = container.offsetWidth;
+        var cardW = (containerW - tGap) / 2;
+        var cards = track.querySelectorAll('.testimonial-card');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.width = cardW + 'px';
         }
+        var offset = tIndex * (cardW + tGap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+    }
+    function slideTestimonials(dir) {
+        var track = document.getElementById('testimonialTrack');
+        var cards = track.querySelectorAll('.testimonial-card');
+        var total = cards.length;
+        var step = 2;
+        var maxIndex = total - step;
+        tIndex += dir * step;
+        if (tIndex < 0) tIndex = maxIndex;
+        if (tIndex > maxIndex) tIndex = 0;
+        var cardW = cards[0].offsetWidth;
+        var offset = tIndex * (cardW + tGap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+    }
+    window.addEventListener('resize', sizeTestimonialCards);
+
+    function toggleFaq(btn) {
+        btn.closest('.faq-item').classList.toggle('active');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -550,6 +632,7 @@
         });
 
         document.querySelector('.fullYear').textContent = new Date().getFullYear();
+        sizeTestimonialCards();
     });
 </script>
 
