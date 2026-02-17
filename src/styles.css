@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@source "../index.html";
+
+@theme {
+    --color-primary: #E65100;
+    --color-primary-light: #FFF3E0;
+    --color-primary-hover: #BF4400;
+    --color-primary-10: #E651001A;
+    --color-text-dark: #1A1A1A;
+    --color-text-body: #4A4A4A;
+    --color-text-muted: #717171;
+    --color-bg-white: #FFFFFF;
+    --color-bg-light: #F9FAFB;
+    --color-bg-gray: #F3F4F6;
+    --color-border: #E5E7EB;
+    --color-body-bg: #F7F7F7;
+    --font-sans: 'Clash Grotesk', sans-serif;
+}
+
+/* ===== BASE ===== */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== GRADIENT BORDERS ===== */
+.gradient-border-top {
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(90deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
+}
+
+.gradient-border-bottom {
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(90deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
+}
+
+.gradient-border-right {
+    border-right: 1px solid transparent;
+    border-image: linear-gradient(180deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
+}
+
+/* ===== HERO DOT PATTERN ===== */
+.hero-pattern {
+    background:
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0) 0 0 / 24px 24px,
+        linear-gradient(180deg, #fff 0%, var(--color-bg-light) 100%);
+}
+
+/* ===== SERVICE CARD CHECKMARKS ===== */
+.service-card li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: inline-flex;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ===== LEADERS SLIDER ANIMATION ===== */
+@keyframes slideLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.leaders-slider {
+    animation: slideLogos 20s linear infinite;
+}
+
+/* ===== FAQ ACCORDION ===== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav.open {
+    display: flex;
+}
+
+/* ===== PROCESS STEP ACTIVE STATE ===== */
+.step-number-wrap.active span {
+    color: var(--color-primary);
+}
+
+.step.active .step-content h3 {
+    color: var(--color-primary);
+}
+
+/* ===== RESPONSIVE STAT BORDERS ===== */
+@media (max-width: 900px) {
+    .stat-item {
+        border-right: none !important;
+        border-image: none !important;
+    }
+    .stat-item-responsive {
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(90deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
+        padding-bottom: 24px;
+    }
+    .stat-item-responsive:last-child {
+        border-bottom: none;
+        border-image: none;
+    }
+}

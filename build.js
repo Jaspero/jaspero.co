@@ -1,8 +1,11 @@
 const {minify} = require('html-minifier');
 const {copy, ensureDirSync} = require('fs-extra');
 const {writeFileSync, readFileSync} = require('fs');
+const {execSync} = require('child_process');
 
 ensureDirSync('public');
+
+execSync('npx tailwindcss -i src/styles.css -o assets/styles.css --minify', {stdio: 'inherit'});
 
 writeFileSync(
   'public/index.html',
