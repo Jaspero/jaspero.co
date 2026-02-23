@@ -34,9 +34,9 @@
 <body class="font-sans text-text-body bg-body-bg leading-relaxed text-base overflow-x-hidden">
 
 <!-- ===== HEADER ===== -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border h-16">
+<header class="fixed top-0 left-0 right-0 z-50 bg-transparent h-16 transition-all duration-300" id="mainHeader">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 flex items-center justify-between h-full">
-        <a href="#" class="flex items-center gap-2 no-underline text-text-dark font-semibold text-lg">
+        <a href="#" class="flex items-center gap-2 no-underline text-text-dark font-normal text-[18px]">
             <img src="assets/logo.svg" alt="Jaspero" class="h-7 w-auto">
             Jaspero
         </a>
@@ -70,18 +70,15 @@
 <div class="mobile-overlay fixed inset-0 bg-black/40 z-[22] hidden" id="mobileOverlay" onclick="closeMobileNav()"></div>
 
 <!-- ===== HERO ===== -->
-<section class="hero-pattern pt-36 pb-16 max-[900px]:pt-30 max-[900px]:pb-10 max-[500px]:pt-25 max-[500px]:pb-8 text-center">
-    <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
+<section class="relative pt-36 pb-16 max-[900px]:pt-30 max-[900px]:pb-10 max-[500px]:pt-25 max-[500px]:pb-8 text-center overflow-hidden">
+    <img src="assets/images/hero-grid.png" alt="" class="absolute top-0 right-0 h-auto pointer-events-none z-0">
+    <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 relative z-10">
         <h1 class="text-[clamp(32px,5vw,56px)] max-[500px]:text-[28px] font-semibold text-text-dark leading-[1.15] mb-5">Transform Your Business<br>with <span class="text-primary">AI Solutions</span></h1>
         <p class="text-[clamp(15px,1.8vw,18px)] text-text-muted max-w-[560px] mx-auto mb-8 leading-relaxed">We help businesses integrate cutting-edge AI technology and automate processes to drive growth, efficiency, and innovation.</p>
-        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold text-sm no-underline bg-primary text-white hover:bg-primary-hover transition-all">Contact Us</a>
-    </div>
-</section>
-
-<!-- ===== HERO IMAGE ===== -->
-<section class="py-5 max-[900px]:py-2.5 pb-16 max-[900px]:pb-10 bg-bg-light text-center">
-    <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 flex justify-center">
-        <img src="assets/images/hero.png" alt="Jaspero AI services overview" class="max-w-[960px] w-full h-auto">
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold text-sm no-underline bg-primary text-white hover:bg-primary-hover transition-all mb-16 max-[900px]:mb-10">Contact Us</a>
+        <div class="flex justify-center">
+            <img src="assets/images/hero.png" alt="Jaspero AI services overview" class="max-w-[960px] w-full h-auto">
+        </div>
     </div>
 </section>
 
@@ -174,7 +171,7 @@
         <div class="py-10 max-[900px]:py-6">
             <div class="mb-8">
                 <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- Powered by expertise <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
-                <h2 class="text-[32px] font-bold text-text-dark mb-2">Our <em class="italic text-primary">tech stack, your choice.</em></h2>
+                <h2 class="text-[32px] font-semibold text-text-dark mb-2">Our <span class="text-primary">tech stack, your choice.</span></h2>
                 <p class="text-[15px] text-text-muted leading-relaxed max-w-[460px]">Our idea deserves the right technology. We help you choose the perfect stack — and then we make it happen.</p>
             </div>
             <div class="grid grid-cols-7 max-[900px]:grid-cols-4 max-[500px]:grid-cols-3 border-t border-l border-[#D2D2D2]">
@@ -202,7 +199,7 @@
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="grid grid-cols-2 max-[700px]:grid-cols-1 gap-16 max-[700px]:gap-8 items-center">
             <div>
-                <h2 class="text-[clamp(26px,3.5vw,36px)] font-bold text-text-dark mb-3">Why Choose <em class="italic">Jaspero?</em></h2>
+                <h2 class="text-[clamp(26px,3.5vw,36px)] font-semibold text-text-dark mb-3">Why Choose <span class="text-primary">Jaspero?</span></h2>
                 <p class="text-[15px] text-text-muted leading-relaxed mb-8">We combine deep technical expertise with business acumen to deliver solutions that truly transform operations.</p>
                 <div class="flex gap-4 mb-7">
                     <div class="w-10 h-10 min-w-10 rounded-[10px] flex items-center justify-center mt-0.5 bg-[#529E43]"><img src="assets/images/expert-team.svg" alt="" class="w-5 h-5 brightness-0 invert"></div>
@@ -238,13 +235,13 @@
 </section>
 
 <!-- ===== OUR PROCESS ===== -->
-<section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="process">
+<section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="process">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <!-- Top row: header + steps 1 & 2 -->
         <div class="flex max-[900px]:flex-col gap-10 max-[900px]:gap-8 items-end">
             <div class="max-w-[380px] w-full shrink-0 max-[900px]:max-w-none pb-4 max-[900px]:pb-0">
                 <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- Our process <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
-                <h2 class="text-[32px] max-[500px]:text-[24px] font-bold text-text-dark mb-4">From <em class="italic">Idea</em> to <em class="italic">Launch</em> – in 5 Steps</h2>
+                <h2 class="text-[32px] max-[500px]:text-[24px] font-semibold text-text-dark mb-4">From <span class="text-primary">Idea to Launch</span> – in 5 Steps</h2>
                 <p class="text-[16px] max-[500px]:text-[14px] text-text-muted leading-relaxed">A systematic approach to delivering AI solutions that drive measurable business impact.</p>
             </div>
             <div class="flex flex-1 max-[900px]:w-full max-[600px]:flex-col justify-between gap-5">
@@ -267,8 +264,8 @@
             </div>
         </div>
         <!-- Bottom row: steps 3, 4, 5 -->
-        <div class="flex flex-wrap max-[600px]:flex-col justify-between gap-5 mt-16 max-[900px]:mt-10 max-[600px]:mt-6">
-            <div class="step flex items-stretch gap-3">
+        <div class="flex max-[600px]:flex-col gap-5 mt-16 max-[900px]:mt-10 max-[600px]:mt-6">
+            <div class="step flex flex-1 items-stretch gap-3">
                 <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">3</span></div>
                 <div class="step-content flex flex-col justify-end">
                     <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-2.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
@@ -276,7 +273,7 @@
                     <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We create the UI/UX and build the product.</p>
                 </div>
             </div>
-            <div class="step flex items-stretch gap-3">
+            <div class="step flex flex-1 items-stretch gap-3">
                 <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">4</span></div>
                 <div class="step-content flex flex-col justify-end">
                     <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-3.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
@@ -284,7 +281,7 @@
                     <p class="text-[13px] max-[500px]:text-[12px] text-text-muted leading-relaxed">We test across devices and optimize performance.</p>
                 </div>
             </div>
-            <div class="step flex items-stretch gap-3">
+            <div class="step flex flex-1 items-stretch gap-3">
                 <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">5</span></div>
                 <div class="step-content flex flex-col justify-end">
                     <div class="w-7 h-7 max-[500px]:w-6 max-[500px]:h-6 rounded-lg bg-[#35353533] flex items-center justify-center mb-2 step-icon-box"><img src="assets/images/process-1.svg" alt="" class="w-4 h-4 max-[500px]:w-3 max-[500px]:h-3"></div>
@@ -383,7 +380,7 @@
 </section>
 
 <!-- ===== STUDENT PROGRAM ===== -->
-<section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="student-program">
+<section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="student-program">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="rounded-2xl overflow-hidden grid grid-cols-2 max-[700px]:grid-cols-1">
             <div class="bg-bg-gray min-h-[360px] rounded-2xl overflow-hidden">
@@ -553,6 +550,15 @@
 </footer>
 
 <script>
+    var header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+    });
+
     function toggleMobileNav() {
         document.getElementById('mobileNav').classList.toggle('open');
         document.getElementById('mobileOverlay').classList.toggle('open');

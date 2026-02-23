@@ -40,12 +40,6 @@ html {
     border-image: linear-gradient(180deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
 }
 
-/* ===== HERO DOT PATTERN ===== */
-.hero-pattern {
-    background:
-        radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0) 0 0 / 24px 24px,
-        linear-gradient(180deg, #fff 0%, var(--color-bg-light) 100%);
-}
 
 /* ===== SERVICE CARD CHECKMARKS ===== */
 .service-card li::before {
@@ -109,6 +103,14 @@ html {
 .faq-item.active .faq-icon::before {
     transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
     opacity: 0;
+}
+
+/* ===== HEADER SCROLL STATE ===== */
+.header-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* ===== HAMBURGER ANIMATION ===== */
