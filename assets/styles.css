@@ -231,9 +231,6 @@
   .top-16 {
     top: calc(var(--spacing) * 16);
   }
-  .top-\[-80px\] {
-    top: -80px;
-  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -401,6 +398,9 @@
   }
   .h-16 {
     height: calc(var(--spacing) * 16);
+  }
+  .h-\[30px\] {
+    height: 30px;
   }
   .h-\[45px\] {
     height: 45px;
@@ -611,9 +611,6 @@
   }
   .overflow-hidden {
     overflow: hidden;
-  }
-  .overflow-visible {
-    overflow: visible;
   }
   .overflow-x-hidden {
     overflow-x: hidden;
@@ -1713,8 +1710,14 @@ body.nav-open {
 .step .step-icon-box {
   transition: background-color 0.3s ease;
 }
+.step .step-icon-box img {
+  transition: filter 0.3s ease;
+}
 .step:hover .step-icon-box {
   background-color: #E6510033;
+}
+.step:hover .step-icon-box img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3000%) hue-rotate(15deg) brightness(95%) contrast(100%);
 }
 @media (max-width: 900px) {
   .stat-item {

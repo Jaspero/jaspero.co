@@ -174,8 +174,16 @@ body.nav-open {
     transition: background-color 0.3s ease;
 }
 
+.step .step-icon-box img {
+    transition: filter 0.3s ease;
+}
+
 .step:hover .step-icon-box {
     background-color: #E6510033;
+}
+
+.step:hover .step-icon-box img {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3000%) hue-rotate(15deg) brightness(95%) contrast(100%);
 }
 
 /* ===== RESPONSIVE STAT BORDERS ===== */
