@@ -33,7 +33,6 @@
 
 <body class="font-sans text-text-body bg-body-bg leading-relaxed text-base overflow-x-hidden">
 
-<!-- ===== HEADER ===== -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-transparent h-16 transition-all duration-300" id="mainHeader">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 flex items-center justify-between h-full">
         <a href="#" class="flex items-center gap-2 no-underline text-text-dark font-normal text-[18px]">
@@ -58,7 +57,7 @@
     </div>
 </header>
 
-<nav class="mobile-nav fixed top-16 right-0 bottom-0 w-[280px] max-[500px]:w-full max-[500px]:top-0 max-[500px]:left-0 bg-white/[0.98] backdrop-blur-sm border-l border-border max-[500px]:border-l-0 px-10 max-[500px]:px-6 pt-6 max-[500px]:pt-20 pb-6 flex-col gap-3 z-[999]" id="mobileNav">
+<nav class="mobile-nav fixed top-16 right-0 bottom-0 w-[280px] max-[500px]:w-full max-[500px]:top-0 max-[500px]:left-0 bg-white/98 backdrop-blur-sm border-l border-border max-[500px]:border-l-0 px-10 max-[500px]:px-6 pt-6 max-[500px]:pt-20 pb-6 flex-col gap-3 z-999" id="mobileNav">
     <a href="#services" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Services</a>
     <a href="#tech-stack" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Tech Stack</a>
     <a href="#student-program" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Student Program</a>
@@ -67,9 +66,8 @@
     <a href="#faq" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">FAQ</a>
     <a href="#contact" onclick="closeMobileNav()" class="no-underline text-text-body text-[15px] font-medium py-2 hover:text-primary transition-colors">Contact</a>
 </nav>
-<div class="mobile-overlay fixed inset-0 bg-black/40 z-[22] hidden" id="mobileOverlay" onclick="closeMobileNav()"></div>
+<div class="mobile-overlay fixed inset-0 bg-black/40 z-22 hidden" id="mobileOverlay" onclick="closeMobileNav()"></div>
 
-<!-- ===== HERO ===== -->
 <section class="relative pt-36 pb-16 max-[900px]:pt-30 max-[900px]:pb-10 max-[500px]:pt-25 max-[500px]:pb-8 text-center overflow-hidden">
     <img src="assets/images/hero-grid.png" alt="" class="absolute top-0 right-0 h-auto pointer-events-none z-0">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 relative z-10">
@@ -82,7 +80,6 @@
     </div>
 </section>
 
-<!-- ===== STATS ===== -->
 <section class="py-25 max-[900px]:py-12 max-[500px]:py-8 mt-10 gradient-border-top">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="grid grid-cols-4 max-[900px]:grid-cols-2 max-[500px]:grid-cols-1 gap-0 max-[900px]:gap-6 max-[500px]:gap-5">
@@ -106,7 +103,6 @@
     </div>
 </section>
 
-<!-- ===== CORE SERVICES ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="services">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <h2 class="text-[32px] font-semibold text-text-dark text-center mb-4">Our Core <span class="text-primary font-semibold">Services</span></h2>
@@ -146,7 +142,6 @@
     </div>
 </section>
 
-<!-- ===== TRUSTED BY LEADERS ===== -->
 <section class="py-16 overflow-hidden">
     <h2 class="text-[32px] font-semibold text-text-dark text-center mb-10">Trusted by <span class="font-bold text-primary">Industry Leaders</span></h2>
     <div class="leaders-slider flex items-center gap-16 max-[900px]:gap-12 max-[500px]:gap-10 w-max">
@@ -165,7 +160,6 @@
     </div>
 </section>
 
-<!-- ===== TECH STACK ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="tech-stack">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="py-10 max-[900px]:py-6">
@@ -194,7 +188,6 @@
     </div>
 </section>
 
-<!-- ===== WHY CHOOSE JASPERO ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="grid grid-cols-2 max-[700px]:grid-cols-1 gap-16 max-[700px]:gap-8 items-center">
@@ -216,14 +209,14 @@
                     </div>
                 </div>
                 <div class="flex gap-4 mb-7">
-                    <div class="w-10 h-10 min-w-10 rounded-[10px] flex items-center justify-center mt-0.5 bg-[#E65100]"><img src="assets/images/support.svg" alt="" class="w-5 h-5 brightness-0 invert"></div>
+                    <div class="w-10 h-10 min-w-10 rounded-[10px] flex items-center justify-center mt-0.5 bg-primary"><img src="assets/images/support.svg" alt="" class="w-5 h-5 brightness-0 invert"></div>
                     <div>
                         <h3 class="text-base font-semibold text-text-dark mb-1">Ongoing Support</h3>
                         <p class="text-sm text-text-muted leading-relaxed">From implementation to maintenance, we provide continuous support to ensure your systems perform optimally.</p>
                     </div>
                 </div>
             </div>
-            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-bg-gray">
+            <div class="relative rounded-2xl overflow-hidden aspect-4/3 bg-bg-gray">
                 <img src="assets/images/why-japsero.png" alt="Jaspero team collaborating" class="w-full h-full object-cover">
                 <div class="absolute top-5 right-5 bg-white text-text-dark px-5 py-3 rounded-[10px] text-center text-[13px] leading-snug shadow-[0px_10px_15px_0px_#0000001A,0px_4px_6px_0px_#0000001A]">
                     <strong class="block text-xl text-primary">24/7</strong>
@@ -234,10 +227,8 @@
     </div>
 </section>
 
-<!-- ===== OUR PROCESS ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="process">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
-        <!-- Top row: header + steps 1 & 2 -->
         <div class="flex max-[900px]:flex-col gap-10 max-[900px]:gap-8 items-end">
             <div class="max-w-[380px] w-full shrink-0 max-[900px]:max-w-none pb-4 max-[900px]:pb-0">
                 <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- Our process <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
@@ -263,7 +254,6 @@
                 </div>
             </div>
         </div>
-        <!-- Bottom row: steps 3, 4, 5 -->
         <div class="flex max-[600px]:flex-col gap-5 mt-16 max-[900px]:mt-10 max-[600px]:mt-6">
             <div class="step flex flex-1 items-stretch gap-3">
                 <div class="step-number-wrap shrink-0 self-end"><span class="text-[220px] max-[900px]:text-[140px] max-[600px]:text-[100px] font-bold text-black/6 leading-[0.67] tracking-[-3px] block">3</span></div>
@@ -293,11 +283,9 @@
     </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="testimonials">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4 pb-20 border-b border-[#D9D9D9]">
         <div class="flex max-[900px]:flex-col gap-8 items-stretch">
-            <!-- Slider area: 2 cards visible -->
             <div class="w-[60%] max-[900px]:w-full shrink-0 overflow-hidden">
                 <div id="testimonialTrack" class="flex gap-6 transition-transform duration-500 ease-in-out">
                     <div class="border border-border rounded-xl py-7 px-6 bg-bg-white flex flex-col shrink-0 testimonial-card">
@@ -362,7 +350,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Highlight + Arrows -->
             <div class="flex-1 flex flex-col justify-center">
                 <div class="flex items-center gap-3 mb-5">
                     <img class="w-12 h-12" src="assets/images/quotes.svg" alt="">
@@ -372,14 +359,13 @@
                     </div>
                 </div>
                 <p class="text-[14px] text-primary mb-2">- Testimonials</p>
-                <h3 class="text-[20px] font-[600] text-[#353535] leading-tight mb-3">Because results speak louder than <em class="italic">words.</em></h3>
+                <h3 class="text-[20px] font-semibold text-[#353535] leading-tight mb-3">Because results speak louder than <em class="italic">words.</em></h3>
                 <p class="text-[20px] text-[#353535] leading-relaxed">Each story represents a journey. A moment of courage. A step toward something better.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== STUDENT PROGRAM ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="student-program">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="rounded-2xl overflow-hidden grid grid-cols-2 max-[700px]:grid-cols-1">
@@ -415,7 +401,6 @@
     </div>
 </section>
 
-<!-- ===== FAQ ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10 bg-white" id="faq">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="inline-flex items-center gap-2 text-[20px] text-[#35353599] mb-3">- FAQ <img src="assets/images/Vector 3.svg" alt="" class="w-[50px] ml-1"></div>
@@ -475,7 +460,6 @@
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10" id="contact">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="grid grid-cols-[1fr_1.2fr] max-[900px]:grid-cols-1 gap-16 max-[900px]:gap-8 items-stretch">
@@ -503,14 +487,13 @@
                     </div>
                     <textarea name="message" placeholder="Your inquiry goes here..." rows="5" required class="font-sans text-[15px] px-4 py-3.5 border-none rounded-lg bg-[#D7D7D733] text-text-dark outline-none transition-all focus:ring-2 focus:ring-primary/20 w-full resize-y flex-1 min-h-[120px]"></textarea>
                     <button type="submit" class="w-full flex justify-center items-center gap-2 h-[45px] rounded-lg font-semibold text-base no-underline bg-primary text-white hover:bg-primary-hover transition-all border-none cursor-pointer font-sans">Contact us</button>
-                    <div class="form-status hidden p-3 rounded-lg text-sm font-medium" id="formStatus"></div>
+                    <div class="hidden p-3 rounded-lg text-sm font-medium" id="formStatus"></div>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
 <section class="py-20 max-[900px]:py-16 max-[500px]:py-10">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="bg-linear-to-br from-[#1a1a1a] via-[#2d1a0e] to-[#3d1a00] rounded-2xl px-12 max-[900px]:px-6 max-[500px]:px-4 h-[380px] max-[900px]:h-auto max-[900px]:py-6 grid grid-cols-2 max-[900px]:grid-cols-1 max-[900px]:text-center gap-10 items-end pb-12 max-[900px]:pb-6 text-white">
@@ -525,7 +508,6 @@
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="py-6 border-t border-[#D9D9D9] bg-bg-white">
     <div class="max-w-[1200px] mx-auto w-full px-10 max-[900px]:px-6 max-[500px]:px-4">
         <div class="flex items-center justify-between max-[900px]:flex-col max-[900px]:gap-4 max-[900px]:text-center">
@@ -614,7 +596,7 @@
             var data = {};
             form.querySelectorAll('input, textarea').forEach(function(el) { data[el.name] = el.value; });
 
-            status.className = 'form-status hidden';
+            status.className = 'hidden';
 
             fetch('/api/contact', {
                 method: 'POST',

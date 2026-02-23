@@ -3,35 +3,26 @@
 
 @theme {
     --color-primary: #E65100;
-    --color-primary-light: #FFF3E0;
     --color-primary-hover: #BF4400;
     --color-primary-10: #E651001A;
     --color-text-dark: #1A1A1A;
     --color-text-body: #4A4A4A;
     --color-text-muted: #717171;
     --color-bg-white: #FFFFFF;
-    --color-bg-light: #F9FAFB;
     --color-bg-gray: #F3F4F6;
     --color-border: #E5E7EB;
     --color-body-bg: #F7F7F7;
     --font-sans: 'Clash Grotesk', sans-serif;
 }
 
-/* ===== BASE ===== */
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== GRADIENT BORDERS ===== */
 .gradient-border-top {
     border-top: 1px solid transparent;
-    border-image: linear-gradient(90deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
-}
-
-.gradient-border-bottom {
-    border-bottom: 1px solid transparent;
     border-image: linear-gradient(90deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
 }
 
@@ -40,8 +31,6 @@ html {
     border-image: linear-gradient(180deg, rgba(53,53,53,0) 0%, #E65100 50%, rgba(53,53,53,0) 100%) 1;
 }
 
-
-/* ===== SERVICE CARD CHECKMARKS ===== */
 .service-card li::before {
     content: '';
     flex-shrink: 0;
@@ -56,7 +45,6 @@ html {
     background-position: center;
 }
 
-/* ===== LEADERS SLIDER ANIMATION ===== */
 @keyframes slideLogos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -66,7 +54,6 @@ html {
     animation: slideLogos 20s linear infinite;
 }
 
-/* ===== FAQ ACCORDION ===== */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
@@ -77,7 +64,6 @@ html {
     max-height: 300px;
 }
 
-/* FAQ plus/minus icon */
 .faq-icon,
 .faq-icon::before {
     position: absolute;
@@ -105,7 +91,6 @@ html {
     opacity: 0;
 }
 
-/* ===== HEADER SCROLL STATE ===== */
 .header-scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
@@ -113,7 +98,6 @@ html {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* ===== HAMBURGER ANIMATION ===== */
 .hamburger.open .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -127,7 +111,6 @@ html {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ===== MOBILE NAV ===== */
 .mobile-nav {
     display: flex;
     transform: translateX(100%);
@@ -138,21 +121,20 @@ html {
     transform: translateX(0);
 }
 
-.mobile-overlay.open {
-    display: block;
-    opacity: 1;
-}
-
 .mobile-overlay {
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.open {
+    display: block;
+    opacity: 1;
 }
 
 body.nav-open {
     overflow: hidden;
 }
 
-/* ===== PROCESS STEP HOVER STATE ===== */
 .step {
     cursor: pointer;
 }
@@ -186,7 +168,6 @@ body.nav-open {
     filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3000%) hue-rotate(15deg) brightness(95%) contrast(100%);
 }
 
-/* ===== RESPONSIVE STAT BORDERS ===== */
 @media (max-width: 900px) {
     .stat-item {
         border-right: none !important;
